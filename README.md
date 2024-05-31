@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Friday 1-6-2024
+
+- added fetchOptions: { cache: "no-store" } to ApolloClient.ts file
+- created query-connector.ts file for a generic connectAndReturnData function
+- separated gql file from the query file for the users type, in addition to handling error that may be thrown when fetching data from the database, but i am always returing an object containing data and the thrown error
+-

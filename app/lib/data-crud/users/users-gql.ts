@@ -9,3 +9,13 @@ export const getAllUsersGql = gql`
     }
   }
 `;
+
+export const createUser = gql`
+  mutation Mutation($data: UserCreateInput!) {
+    createOneUser(data: $data) {
+      id
+      username
+      email
+    }
+  }
+`;

@@ -20,6 +20,7 @@ export default async function UsersPage() {
             </div>
           ))}
         </div>
+        <Link href="users/create">Create User</Link>
       </div>
     );
   }

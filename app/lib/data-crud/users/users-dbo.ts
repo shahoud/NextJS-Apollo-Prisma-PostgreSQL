@@ -1,6 +1,8 @@
-import { User } from "@/prisma/generated/type-graphql";
-import { connectAndReturnData } from "../query-connector";
-import { getAllUsersGql } from "./users-gql";
+import { User, UserCreateInput } from "@/prisma/generated/type-graphql";
+import { connectAndCreateData, connectAndReturnData } from "../query-connector";
+import { CREATE_ONE_USER, getAllUsersGql } from "./users-gql";
+import { useMutation } from "@apollo/client";
+import { getClient } from "../../apollo-client/ApolloClient";
 
 // Define the 'UsersData' type to match the expected shape of GraphQL query result
 type UsersData = {
@@ -36,4 +38,15 @@ export async function getAllUsers(): Promise<UsersResult> {
     // Return the result with the caught error
     return { users: [], error: new Error(error.message) };
   }
+}
+
+export async function createOneUser(userInput: UserCreateInput) {
+  const apolloClient = getClient();
+  const { data } = await apolloClient.mutate({
+    mutation: CREATE_ONE_USER,
+    variables: {
+      data: { username: userInput.username, email: userInput.email },
+    },
+  });
+  console.log(data);
 }

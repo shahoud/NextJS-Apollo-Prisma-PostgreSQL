@@ -10,8 +10,8 @@ export const getAllUsersGql = gql`
   }
 `;
 
-export const createUser = gql`
-  mutation Mutation($data: UserCreateInput!) {
+export const CREATE_ONE_USER = gql`
+  mutation CreateOneUser($data: UserCreateInput!) {
     createOneUser(data: $data) {
       id
       username

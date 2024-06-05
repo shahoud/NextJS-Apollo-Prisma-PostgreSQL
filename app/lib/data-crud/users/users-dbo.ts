@@ -40,6 +40,7 @@ export async function getAllUsers(): Promise<UsersResult> {
   }
 }
 
+//Todo: make this funnction return a promise of User type and update the cache and make a notification to all clients
 export async function createOneUser(userInput: UserCreateInput) {
   const apolloClient = getClient();
   const { data } = await apolloClient.mutate({
